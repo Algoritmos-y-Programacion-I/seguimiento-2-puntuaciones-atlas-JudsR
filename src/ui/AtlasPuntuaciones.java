@@ -23,7 +23,36 @@ public class AtlasPuntuaciones {
 	
 	
 	public void run()
-	{
+	{	
+		int rondas, jugadores, jugadorActual;
+		
+		
+
+		System.out.println("Bienvenidos al torneo de videojuegos.");
+		System.out.println("Solo pueden partcipar un maximo de 10 jugadores y maximo 5 rondas cada uno.");
+		
+		System.out.println("Cuantos jugadores participan?: ");
+		jugadores = escaner.nextInt();
+
+		int[] puntajes = new int[jugadores];
+		int[] suma = new int[jugadores];
+		double[] promedio = new int[jugadores];
+
+		System.out.println("Cuantas rondas van a jugar?: ");
+		rondas = escaner.nextInt();
+		//solicitar puntaje
+		solicitarPuntaje(jugadores, rondas, puntajes);
+		System.out.println("");
+		System.out.println("Resultados del torneo:");
+		calcularSumaTotal(puntajes, suma, rondas);
+		calcularPromedio(promedio, rondas);
+		for (i = 0; i < jugadores; i++) {
+			jugadorActual = i+1;
+
+			System.out.println("Jugador "+jugadorActual+" - Puntaje: "+suma[i]+" - Promedio: "+promedio[i]+".");
+
+		System.out.println("");
+		System.out.println("");
 		// Declaracion de todas las variables a usar en el programa
 
 
@@ -41,6 +70,27 @@ public class AtlasPuntuaciones {
 
 	}
 
+	public int solicitarPuntaje (int jugadores, int rondas, int[] puntajes) {
+		int y, rondaActual, jugadorActual;
+		rondaActual = 0;
+		jugadorActual = 0;
+
+		for (int i = 0; i < rondas; i++) {
+
+			rondaActual = +1;			
+
+			for (y = 0; y < jugadores; y++) {
+
+				jugadorActual = +1;
+
+				System.out.println("Cual fue el puntaje del jugador "+jugadorActual+" en la ronda "+rondaActual+":");
+				puntajes[y] = escaner.nextInt();
+				escaner.nextLine();
+			}	
+		}
+		return puntajes;
+	}
+
 	public static void main(String[] args) {
 		AtlasPuntuaciones mainApp = new AtlasPuntuaciones();
 		mainApp.run();
@@ -51,8 +101,17 @@ public class AtlasPuntuaciones {
 	 * @param int[] numeros
 	 * @return 
 	 */
-    public int calcularSumaTotal(int[] numeros) {
-        // Completar
+
+	public int[] calcularSumaTotal(int[] puntajes, int[] suma, int rondas) {
+        int sumaP, cantPuntajes, x;
+
+			
+		for(int i = 0; i < puntajes.length; i++){
+			for (int x = 0; x < rondas; x++) {
+			sumaP += suma[x];
+			}
+		}
+		return suma;
     }
 
 	/**
@@ -60,8 +119,14 @@ public class AtlasPuntuaciones {
 	 * @param int[] numeros
 	 * @return 
 	 */
-    public double calcularPromedio(int[] numeros) {
-        // Completar
+    public double[] calcularPromedio(double[] promedio, int rondas) {
+        double prom = 0;
+		
+		for (int i = 0; i < suma; i++) {
+			prom = suma[i]/rondas;
+			prom += promedio[i];
+		}
+		return promedio;
     }
 
 	/**
@@ -69,9 +134,11 @@ public class AtlasPuntuaciones {
 	 * @param double[] numeros
 	 * @return 
 	 */
-    public double encontrarMayor(double[] numeros) {
-        // Completar
+    public double encontrarMayor(double[] promedio) {
+        
     }
+    
+
 
 	
 
