@@ -69,6 +69,7 @@ public class AtlasPuntuaciones {
 
 
 	}
+	}
 
 	public int solicitarPuntaje (int jugadores, int rondas, int[] puntajes) {
 		int y, rondaActual, jugadorActual;
