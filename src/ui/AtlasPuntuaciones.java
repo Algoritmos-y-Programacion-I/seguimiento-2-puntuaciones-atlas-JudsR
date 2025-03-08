@@ -42,42 +42,28 @@ public class AtlasPuntuaciones {
 		int[] puntajes = new int[cantPuntajes];
 		int[] suma = new int[jugadores];
 		double[] promedio = new double[jugadores];
-		//solicitar puntaje
-		solicitarPuntaje(jugadores, rondas, puntajes, cantPuntajes);
+		
 		System.out.println("");
 		System.out.println("Resultados del torneo:");
+
+		solicitarPuntaje(jugadores, rondas, puntajes, cantPuntajes);
 		calcularSumaTotal(puntajes, suma, rondas);
 		calcularPromedio(promedio, rondas, suma, jugadores);
 		mayorPl = encontrarMayor(suma, jugadores);
+
 		for (int i = 0; i < jugadores; i++) {
 			jugadorActual = i+1;
 
 			System.out.println("");
 			System.out.println("Jugador "+jugadorActual+" - Puntaje: "+suma[i]+" - Promedio: "+promedio[i]+".");
 			System.out.println("");
+		}
 
 		System.out.println("El jugador con la puntuación más alta es: Jugador "+mayorPl+".");
-		
-		// Declaracion de todas las variables a usar en el programa
-
-
-		// Notificacion al usuario de la solicitud de dato
-
-		// Capturamos el dato con nuestro Scanner (que se llama, escaner)
-
-
-
-		// Realizamos los cálculos delegandolos a los métodos
-
-
-		// Notificación al usuario de los resultados
-
-
-	}
 	}
 
 	public void solicitarPuntaje (int jugadores, int rondas, int[] puntajes, int cantPuntajes) {
-		int x, y, rondaActual, jugadorActual;
+		int x, y, rondaActual, jugadorActual, puntaje;
 		jugadorActual = 0;
 		x = 0;
 
@@ -86,8 +72,20 @@ public class AtlasPuntuaciones {
 			for (int i = 0; i < rondas; i++) {
 				rondaActual = i+1;
 				System.out.println("Cual fue el puntaje del jugador "+jugadorActual+" en la ronda "+rondaActual+":");
-				puntajes[x] = escaner.nextInt();
-				escaner.nextLine();
+				
+				while (true) {
+					puntaje = escaner.nextInt();
+	
+					if (puntaje <= 100 && puntaje >= 0) {
+						puntajes[x] += puntaje;
+						escaner.nextLine();
+						break;
+					} else {
+						System.out.println("");
+						System.out.println("Ingrese puntajes validos entre 100 y 0.");
+						System.out.println("Ingrese el numero nuevamente: ");
+					}
+				}
 				x += 1;
 			}
 		}
