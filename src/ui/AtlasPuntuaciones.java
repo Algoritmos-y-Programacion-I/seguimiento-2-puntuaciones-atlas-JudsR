@@ -1,7 +1,8 @@
 // Análisis (completar)
-// Descripción del programa:
-// Entradas:
-// Salidas:
+// Descripción del programa: El programa nos permite calcular la suma total de puntajes por jugador y su promedio,
+//ademas detenerminar quien obtuvo el mayor puntaje. Pare esto recibe del usuario los puntajes.
+// Entradas: Puntajes, cantidad de jugadores, cantidad de rondas.
+// Salidas: Suma total del puntaje por jugador, promedio por jugador, jugador con puntaje más alto.
 // Ejemplo:
 
 
@@ -62,6 +63,13 @@ public class AtlasPuntuaciones {
 		System.out.println("El jugador con la puntuación más alta es: Jugador "+mayorPl+".");
 	}
 
+	/**
+	 * Descripción: El método solicitarPuntaje permite pedirle a cada jigador segun la ronda el puntaje que obtuvo,
+	 * ademas de validar si el puntaje ingresado es valido entre 0 y 100.
+	 * @param int jugadores, int rondas, int[] puntajes, int cantPuntajes
+	 * @return Solo retorna el arreglo pero este no hay necesidad pues se actualiza solo
+	 */
+
 	public void solicitarPuntaje (int jugadores, int rondas, int[] puntajes, int cantPuntajes) {
 		int x, y, rondaActual, jugadorActual, puntaje;
 		jugadorActual = 0;
@@ -97,9 +105,9 @@ public class AtlasPuntuaciones {
 	}
 
 	/**
-	 * Descripción: El método calcularSumaTotal permite ...
-	 * @param int[] numeros
-	 * @return 
+	 * Descripción: El método calcularSumaTotal permite sumar los puntajes del jugador a travez de sus rondas
+	 * @param int[] puntajes, int[] suma, int rondas
+	 * @return Solo retorna el arreglo pero este no hay necesidad pues se actualiza solo
 	 */
 
 	public void calcularSumaTotal(int[] puntajes, int[] suma, int rondas) {
@@ -113,9 +121,9 @@ public class AtlasPuntuaciones {
     }
 
 	/**
-	 * Descripción: El método calcularPromedio permite ...
-	 * @param int[] numeros
-	 * @return 
+	 * Descripción: El método calcularPromedio permite calcular el puntaje promedio por jugador 
+	 * @param double[] promedio, int rondas, int[] suma, int jugadores.
+	 * @return Solo retorna el arreglo pero este no hay necesidad pues se actualiza solo
 	 */
     public void calcularPromedio(double[] promedio, int rondas, int[] suma, int jugadores) {
         double calcProm;
@@ -127,9 +135,9 @@ public class AtlasPuntuaciones {
     }
 
 	/**
-	 * Descripción: El método encontrarMayor permite ...
-	 * @param double[] numeros
-	 * @return 
+	 * Descripción: El método encontrarMayor permite determinar cual de los jugadores obtuvo el mayor puntaje
+	 * @param int[] suma, int jugadores
+	 * @return mayorPl: el numero del jugador que obtuvo el mayor putaje
 	 */
     public int encontrarMayor(int[] suma, int jugadores) {
 		int mayor = 0, mayorPl = 0;
