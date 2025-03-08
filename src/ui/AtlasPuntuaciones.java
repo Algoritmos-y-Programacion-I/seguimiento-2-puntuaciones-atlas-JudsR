@@ -25,7 +25,7 @@ public class AtlasPuntuaciones {
 	
 	public void run()
 	{	
-		int rondas, jugadores, jugadorActual, cantPuntajes;
+		int rondas, jugadores, jugadorActual, cantPuntajes, mayorPl;
 		
 		
 
@@ -48,13 +48,16 @@ public class AtlasPuntuaciones {
 		System.out.println("Resultados del torneo:");
 		calcularSumaTotal(puntajes, suma, rondas);
 		calcularPromedio(promedio, rondas, suma, jugadores);
+		mayorPl = encontrarMayor(suma, jugadores);
 		for (int i = 0; i < jugadores; i++) {
 			jugadorActual = i+1;
 
+			System.out.println("");
 			System.out.println("Jugador "+jugadorActual+" - Puntaje: "+suma[i]+" - Promedio: "+promedio[i]+".");
+			System.out.println("");
 
-		System.out.println("");
-		System.out.println("");
+		System.out.println("El jugador con la puntuación más alta es: Jugador "+mayorPl+".");
+		
 		// Declaracion de todas las variables a usar en el programa
 
 
@@ -109,7 +112,6 @@ public class AtlasPuntuaciones {
 			numJugador = i/rondas;
 			suma[numJugador] += puntajes[i];
 		}
-		Arrays.stream(suma).forEach(System.out::println);
     }
 
 	/**
@@ -131,8 +133,20 @@ public class AtlasPuntuaciones {
 	 * @param double[] numeros
 	 * @return 
 	 */
-    //public double encontrarMayor(double[] promedio) {
-        
-    //}
+    public int encontrarMayor(int[] suma, int jugadores) {
+		int mayor = 0, mayorPl = 0;
+
+		for (int i = 0; i < suma.length; i++) {
+			if (suma[i]>mayor){
+				mayor = suma[i];
+				if (mayor == suma[i]){
+					mayorPl = i;
+				}
+			}
+		}
+		mayorPl += 1;
+
+        return mayorPl;
+    }
 	
 }
