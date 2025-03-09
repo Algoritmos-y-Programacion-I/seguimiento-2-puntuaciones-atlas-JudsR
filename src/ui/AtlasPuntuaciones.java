@@ -3,12 +3,41 @@
 //ademas detenerminar quien obtuvo el mayor puntaje. Pare esto recibe del usuario los puntajes.
 // Entradas: Puntajes, cantidad de jugadores, cantidad de rondas.
 // Salidas: Suma total del puntaje por jugador, promedio por jugador, jugador con puntaje más alto.
-// Ejemplo:
+/*Ejemplo: Bienvenidos al torneo de videojuegos.
+Solo pueden partcipar un maximo de 10 jugadores y maximo 5 rondas cada uno.
+Cuantos jugadores participan?: 
+2
+Cuantas rondas van a jugar?: 
+3
+Cual fue el puntaje del jugador 1 en la ronda 1:
+50
+Cual fue el puntaje del jugador 1 en la ronda 2:
+60
+Cual fue el puntaje del jugador 1 en la ronda 3:
+70
+Cual fue el puntaje del jugador 2 en la ronda 1:
+80
+Cual fue el puntaje del jugador 2 en la ronda 2:
+90
+Cual fue el puntaje del jugador 2 en la ronda 3:
+109
 
+Ingrese puntajes validos entre 100 y 0.
+Ingrese el numero nuevamente:
+100
+
+Resultados del torneo:
+
+Jugador 1 - Puntaje: 180 - Promedio: 60.0.
+
+
+Jugador 2 - Puntaje: 270 - Promedio: 90.0.
+
+El jugador con la puntuación más alta es: Jugador 2.
+*/
 
 package ui; // No olvidar especificar el paquete / carpeta de nuestro programa
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class AtlasPuntuaciones {
@@ -113,7 +142,6 @@ public class AtlasPuntuaciones {
 
 	public void calcularSumaTotal(int[] puntajes, int[] suma, int rondas) {
         int  i, numJugador;
-		Arrays.fill(suma, 0);
 			
 		for (i = 0; i < puntajes.length; i++){
 			numJugador = i/rondas;
@@ -130,7 +158,7 @@ public class AtlasPuntuaciones {
         double calcProm;
 		
 		for (int i = 0; i < jugadores; i++) {
-			calcProm = suma[i]/rondas;
+			calcProm = (double)suma[i]/rondas;
 			promedio[i] += calcProm;
 		}
     }
