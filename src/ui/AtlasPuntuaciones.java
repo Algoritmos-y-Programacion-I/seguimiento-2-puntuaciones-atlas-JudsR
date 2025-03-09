@@ -43,11 +43,12 @@ public class AtlasPuntuaciones {
 		int[] puntajes = new int[cantPuntajes];
 		int[] suma = new int[jugadores];
 		double[] promedio = new double[jugadores];
+
+		solicitarPuntaje(jugadores, rondas, puntajes, cantPuntajes);
 		
 		System.out.println("");
 		System.out.println("Resultados del torneo:");
 
-		solicitarPuntaje(jugadores, rondas, puntajes, cantPuntajes);
 		calcularSumaTotal(puntajes, suma, rondas);
 		calcularPromedio(promedio, rondas, suma, jugadores);
 		mayorPl = encontrarMayor(suma, jugadores);
